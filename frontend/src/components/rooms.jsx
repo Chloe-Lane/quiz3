@@ -1,5 +1,7 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import Rating from './rating';
+import { Link } from 'react-router-dom';
 
 function Rooms({ rooms }) {
   return (
@@ -8,13 +10,13 @@ function Rooms({ rooms }) {
         className="mx-3 my-3 p-4 rounded shadow"
         style={{
           width: '25rem',
-          height: '35rem',
+          height: '45rem',
           display: 'flex',
           flexDirection: 'column',
           overflow: 'hidden', // Prevent content from overflowing
         }}
       >
-        <a href={`/rooms/${rooms._id}`}>
+        <Link to={`/rooms/${rooms._id}`}>
           <Card.Img
             src={rooms.image}
             style={{
@@ -22,16 +24,23 @@ function Rooms({ rooms }) {
               objectFit: 'cover', // Ensure image fits within its container
             }}
           />
-        </a>
+        </Link>
 
         <Card.Body className="d-flex flex-column">
-          <a href={`/rooms/${rooms._id}`} className="text-decoration-none">
+          <Link to={`/rooms/${rooms._id}`} className="text-decoration-none">
             <Card.Title className="mb-2">
               <strong className="text-dark">{rooms.name}</strong>
             </Card.Title>
-          </a>
+          </Link>
 
           <Card.Text className="text-dark" style={{ flexGrow: 1, overflowY: 'auto' }}>
+
+          <Card.Text as="div">
+            <div className="my-3">
+              <Rating value={rooms.rating} text={'#f8e825'} />
+            </div>
+          </Card.Text>
+          
             <p>
               Price: <strong>₱{rooms.price}</strong>
             </p>
@@ -43,6 +52,7 @@ function Rooms({ rooms }) {
               Description: <strong>{rooms.description}</strong>
             </p>
           </Card.Text>
+
         </Card.Body>
       </Card>
     </div>
