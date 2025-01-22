@@ -1,13 +1,22 @@
-import React from 'react'
-
-import { Row, Col, Image, ListGroup, Button, Card } from 'react-bootstrap'
+import React, { useState, useEffect } from 'react'
+import { Row, Col, Image, ListGroup, Button, Card, ListGroupItem } from 'react-bootstrap'
 import Rating from '../components/rating'
-import rooms from '../rooms'
 import { Link, useParams } from 'react-router-dom'
+import axios from 'axios'
 
 function RoomScreen() {
+
     const { id } = useParams()
-    const room = rooms.find((p) => p._id === id)
+    
+    const [room, setRoom] = useState([])
+
+    useEffect(() => {
+        async function fetchRoom() {
+            const {data} = await axios.get(`/rooms/${id}`)
+            setRoom(data)
+        }
+        fetchRoom()
+    }, [])
   return (
     <Row>
         <Col md={6}>
