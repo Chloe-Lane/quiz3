@@ -34,7 +34,7 @@ function RoomScreen() {
                     Price: <strong>${room.price}</strong>
                 </ListGroup.Item>
                 <ListGroup.Item>
-                    Description: {room.description}
+                    Stock: {room.stock}
                 </ListGroup.Item>
             </ListGroup>
         </Col>

@@ -10,7 +10,7 @@ function Rooms({ rooms }) {
         className="mx-3 my-3 p-4 rounded shadow"
         style={{
           width: '25rem',
-          height: '45rem',
+          height: '35rem',
           display: 'flex',
           flexDirection: 'column',
           overflow: 'hidden', // Prevent content from overflowing
@@ -37,20 +37,18 @@ function Rooms({ rooms }) {
 
           <Card.Text as="div">
             <div className="my-3">
-              <Rating value={rooms.rating} text={'#f8e825'} />
+              <Rating value={rooms.rating} color={'#f8e825'} />
             </div>
           </Card.Text>
           
             <p>
               Price: <strong>₱{rooms.price}</strong>
             </p>
+
             <p>
-              <i className="fas fa-location-arrow"></i> Location:{' '}
-              <strong>{rooms.location}</strong>
+              Stock: <strong>{rooms.stock}</strong>
             </p>
-            <p>
-              Description: <strong>{rooms.description}</strong>
-            </p>
+
           </Card.Text>
 
         </Card.Body>

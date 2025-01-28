@@ -9,7 +9,7 @@ function Header() {
     <Navbar expand="lg" bg="primary" variant="dark">
       <Container>
 
-        <Navbar.Brand href="#home"><i class="fas fa-home"></i> Easy Way</Navbar.Brand>
+        <Navbar.Brand href="#home"><i class="fas fa-home"></i> Cosmetics</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
         <Navbar.Collapse id="basic-navbar-nav">
