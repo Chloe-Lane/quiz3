@@ -4,37 +4,37 @@ import Rating from '../components/rating'
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 
-function RoomScreen() {
+function ProductScreen() {
 
     const { id } = useParams()
     
-    const [room, setRoom] = useState([])
+    const [product, setProduct] = useState([])
 
     useEffect(() => {
-        async function fetchRoom() {
-            const {data} = await axios.get(`/rooms/${id}`)
-            setRoom(data)
+        async function fetchProduct() {
+            const {data} = await axios.get(`/product/${id}`)
+            setProduct(data)
         }
-        fetchRoom()
+        fetchProduct()
     }, [])
   return (
     <Row>
         <Col md={6}>
-            <Image src={room.image} alt={room.name} fluid></Image>
+            <Image src={product.image} alt={product.name} fluid></Image>
         </Col>
         <Col md={3}>
             <ListGroup variant='flush'>
                 <ListGroup.Item>
-                    <h3>{room.name}</h3>
+                    <h3>{product.name}</h3>
                 </ListGroup.Item>
                 <ListGroup.Item>
-                    <Rating value={room.rating} text={`${room.numReviews} reviews`} />
+                    <Rating value={product.rating} text={`${product.numReviews} reviews`} />
                 </ListGroup.Item>
                 <ListGroup.Item>
-                    Price: <strong>${room.price}</strong>
+                    Price: <strong>${product.price}</strong>
                 </ListGroup.Item>
                 <ListGroup.Item>
-                    Stock: {room.stock}
+                    Stock: {product.stock}
                 </ListGroup.Item>
             </ListGroup>
         </Col>
@@ -45,4 +45,4 @@ function RoomScreen() {
   )
 }
 
-export default RoomScreen
+export default ProductScreen

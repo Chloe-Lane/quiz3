@@ -4,38 +4,21 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
+from .serializers import *  
 
+@api_view(['GET'])
+def getProducts(request):
+    rooms = Product.objects.all()
+    serializer = ProductSerializer(rooms, many=True)
+    return Response(serializer.data)
 
 
 @api_view(['GET'])
-def getRoutes(request):
-
-    routes = [
-        '/api/products/',
-        '/api/products/create/',
-        '/api/products/upload/',
-        '/api/products/<id>/reviews/',
-        '/api/products/top/',
-        '/api/products/<id>/',
-        '/api/products/delete/<id>/',
-        '/api/products/update/<id>/',
-    ]
-    return Response(routes)
-
-@api_view(['GET'])
-def getRooms(request):
-    return Response(rooms)
-
-
-@api_view(['GET'])
-def getRoom(request, pk):
-    room = None
-    for i in rooms:
-        if i['_id'] == pk:
-            room = i
-            break
-    return Response(room)
-
+def getProduct(request, pk):
+    room = Product.objects.get(_id=pk)
+    serializer = ProductSerializer(room, many=False)
+    return Response(serializer.data)
+     
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
     def get_token(cls, user):

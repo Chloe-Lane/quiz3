@@ -1,1 +1,69 @@
-node_modules
+# Python related (Django)
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.db
+*.sqlite3
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pid
+*.coverage
+*.hypothesis/
+*.tox/
+*.nox/
+*.coverage/
+*.pytest_cache/
+*.vscode/
+*.idea/
+
+# Django migrations
+*/migrations/*
+
+# Static and media files
+/static/
+media/
+
+# .env files (if you're using environment variables)
+.env
+.env.*
+*.env
+
+# React related
+/node_modules/
+/build/
+/dist/
+/*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# VS Code settings
+.vscode/
+
+# macOS related
+.DS_Store
+
+# Windows related
+Thumbs.db
+ehthumbs.db
+
+# JetBrains related (IDE settings)
+.idea/
+
+# Python virtual environments
+venv/
+env/
+.venv/
+.env/
+
+# Django specific files
+*.pot
+*.mo
+*.po
+
+# Docker files
+docker-compose.override.yml
+*.dockerfile
